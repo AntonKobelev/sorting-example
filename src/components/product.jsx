@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Product = ({ id, image, title, price, description }) => {
+const Product = ({ id, image, title, price, description, rating }) => {
   return (
     <div key={id} className="col-4">
       <div className="card">
@@ -14,6 +14,9 @@ const Product = ({ id, image, title, price, description }) => {
             Buy now
           </a>
         </div>
+        <div className="card-footer">
+          <small className="text-muted">rating {rating.rate}</small>
+        </div>
       </div>
     </div>
   );
@@ -25,6 +28,10 @@ Product.propTypes = {
   price: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  raiting: PropTypes.shape({
+    rate: PropTypes.number.isRequired,
+    count: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default Product;
